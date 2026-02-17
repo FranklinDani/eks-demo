@@ -9,8 +9,6 @@ env:
 
 phases:
   install:
-    runtime-versions:
-      docker: 20
     commands:
       - echo Installing kubectl
       - curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -37,7 +35,3 @@ phases:
       - echo Deploying to EKS
       - kubectl apply -f deployment.yaml
       - kubectl apply -f service.yaml
-
-artifacts:
-  files:
-    - '**/*'
